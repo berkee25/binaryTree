@@ -1,13 +1,32 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+        BinaryTree tree = new BinaryTree();
+
+        // Manually chosen values
+        int[] valuesToAdd = {64, 32, 128, 48,72,87, 16, 4, 150, 36, 66, 10, 114};
+
+        System.out.println("Adding nodes:");
+        for (int value : valuesToAdd) {
+            System.out.println("  addNode(" + value + ")");
+            tree.addNode(value);
+        }
+
+        System.out.println();
+        //tree.printInOrder();
+
+        // Search test
+        System.out.println("\nSearch tests:");
+        System.out.println("searchNode(6)  -> " + tree.searchNode(66));
+        System.out.println("searchNode(100)-> " + tree.searchNode(100));
+
+        // Remove test
+        System.out.println("\nRemoving 4...");
+        tree.removeNode(4);
+        //tree.printInOrder();
+
+        System.out.println("Removing 64 (root)...");
+        tree.removeNode(64);
+        //tree.printInOrder();
+    }
 }
